@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5000-6000元相机推荐报告 (带动效)</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+            overflow-x: hidden; /* 防止水平滚动条 */
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #fff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+             /* 添加加载动画 */
+            animation: fadeInDown 0.8s ease-out;
+        }
+        h2 {
+            color: #3498db;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            transition: color 0.3s ease; /* 为悬停效果添加过渡 */
+        }
+        h2:hover {
+             color: #2980b9; /* 悬停时颜色加深 */
+        }
+        h3 {
+            color: #2980b9;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        h4 {
+            color: #555;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul {
+            margin-bottom: 15px;
+            padding-left: 25px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        strong {
+            color: #e74c3c; /* Highlight key terms */
+        }
+        .pros-cons ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .pros-cons li::before {
+            margin-right: 8px;
+            font-weight: bold;
+        }
+        .pros li::before {
+            content: '✅'; /* Green check for pros */
+            color: #2ecc71;
+        }
+        .cons li::before {
+            content: '❌'; /* Red cross for cons */
+            color: #e74c3c;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            vertical-align: top; /* Align text to top for readability */
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+        tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tbody tr {
+             transition: background-color 0.3s ease; /* 添加背景色过渡 */
+        }
+        tbody tr:hover {
+            background-color: #eaf2f8;
+        }
+        .price {
+             font-weight: bold;
+             color: #c0392b;
+        }
+        .note {
+            font-style: italic;
+            color: #777;
+            font-size: 0.9em;
+        }
+        .conclusion {
+            background-color: #eaf2f8;
+            padding: 20px;
+            border-left: 5px solid #3498db;
+            margin-top: 30px;
+            border-radius: 4px;
+            /* 添加加载动画 */
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0; /* 初始透明 */
+            animation-delay: 0.6s; /* 稍作延迟 */
+        }
+         .budget-combo {
+            background-color: #fdf5e6; /* Light orange background */
+            border: 1px dashed #f39c12;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* 添加变换和阴影过渡 */
+             /* 添加加载动画 */
+            animation: fadeInUp 0.7s ease-out forwards;
+            opacity: 0; /* 初始透明 */
+            /* 为每个卡片设置不同的延迟，制造交错效果 */
+        }
+        /* 为预算组合卡片添加悬停效果 */
+        .budget-combo:hover {
+            transform: translateY(-3px); /* 轻微上移 */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 增加阴影 */
+        }
+        .budget-combo strong {
+            color: #d35400; /* Darker orange for combo title */
+        }
+        .budget-combo ul {
+            margin-top: 10px;
+        }
+
+        /* 为主要内容区域添加基础的加载动画 */
+        section[id] {
+             animation: fadeInUp 0.8s ease-out forwards;
+             opacity: 0; /* 初始透明 */
+        }
+
+        /* 交错动画延迟 (可选, 增加视觉层次感) */
+        #introduction { animation-delay: 0.1s; }
+        #basics { animation-delay: 0.2s; }
+        #budget-initial { animation-delay: 0.3s; }
+        #recommendations article:nth-of-type(1) { animation-delay: 0.4s; }
+        #recommendations article:nth-of-type(2) { animation-delay: 0.5s; }
+        #recommendations article:nth-of-type(3) { animation-delay: 0.6s; }
+        #recommendations article:nth-of-type(4) { animation-delay: 0.7s; }
+        #comparison { animation-delay: 0.8s; }
+        #budget-allocation { animation-delay: 0.9s; }
+        /* 预算组合卡片的交错延迟 */
+        #budget-allocation .budget-combo:nth-of-type(1) { animation-delay: 1.0s; }
+        #budget-allocation .budget-combo:nth-of-type(2) { animation-delay: 1.1s; }
+        #budget-allocation .budget-combo:nth-of-type(3) { animation-delay: 1.2s; }
+        #budget-allocation .budget-combo:nth-of-type(4) { animation-delay: 1.3s; }
+        #budget-allocation .budget-combo:nth-of-type(5) { animation-delay: 1.4s; }
+        #final-recommendation { animation-delay: 1.5s; }
+        #conclusion { animation-delay: 1.6s; } /* 结论最后出现 */
+
+
+        /* 定义动画 */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>5000-6000元相机推荐报告：兼顾拍照与视频的全面选择</h1>
+
+        <section id="introduction">
+            <h2>引言</h2>
+            <p>在当今数字化时代，相机已经成为记录生活、创作艺术的重要工具。对于预算在<strong>5000-6000元</strong>之间的消费者来说，选择一台既能满足日常拍摄需求，又具备一定视频能力的相机至关重要。本报告将基于对多款相机的详细分析，为预算有限但追求高质量拍摄体验的用户推荐几款性价比高的相机，帮助你在有限预算内获得最佳拍摄体验。</p>
+        </section>
+
+        <section id="basics">
+            <h2>相机基础知识</h2>
+            <h3>相机分类</h3>
+            <p>在选择相机前，了解相机的基本分类和特点至关重要：</p>
+            <ul>
+                <li><strong>单反相机：</strong>采用光学取景结构的可换镜头相机，机身内部有反光镜和五棱镜。适合专业摄影师和摄影爱好者使用。</li>
+                <li><strong>无反相机：</strong>也称为微单相机，采用电子取景结构，机身内部没有反光镜和五棱镜。这类相机更轻便，对焦更快，视频拍摄功能更强大，适合现代用户的需求。</li>
+                <li><strong>微单相机：</strong>狭义上专指索尼无反相机，但广义上已成为所有无反相机的统称。</li>
+                <li><strong>卡片相机：</strong>不可换镜头的便携式相机，体积小，携带方便，但画质和功能有限。</li>
+                <li><strong>全画幅相机：</strong>使用全画幅传感器的相机，传感器尺寸与传统胶片相同，提供更好的低光性能和浅景深效果。</li>
+            </ul>
+
+            <h3>传感器类型对比</h3>
+            <p>传感器是相机的核心部件，直接影响画质和功能：</p>
+            <ul>
+                <li><strong>全画幅传感器：</strong>尺寸约为36mm×24mm，提供更好的低光性能和更浅的景深效果。</li>
+                <li><strong>APS-C传感器</strong>（尼康DX格式、索尼E格式）：尺寸约为23.5mm×15.7mm，是入门级和中端相机常用的传感器类型。</li>
+                <li><strong>M4/3传感器：</strong>尺寸约为17.3mm×13mm，是松下和奥林巴斯微单相机使用的传感器类型。</li>
+            </ul>
+        </section>
+
+         <section id="budget-initial">
+            <h2>预算分配建议</h2>
+            <p>在<strong>5000-6000元</strong>的预算范围内，合理的分配应该是机身加镜头的组合。考虑到镜头的成本，建议将大部分预算用于机身，然后选择合适的镜头搭配。一般来说，机身和镜头的比例可以考虑为<strong>6:4</strong>或<strong>7:3</strong>。</p>
+        </section>
+
+        <section id="recommendations">
+            <h2>5000-6000元相机推荐</h2>
+
+            <article id="nikon-z30">
+                <h3>尼コン Z30 套机</h3>
+                <h4>产品概述</h4>
+                <p>尼コンZ30是尼康推出的一款入门级无反相机，以其轻便的机身和全面的功能受到欢迎。以下是尼康Z30的主要特点：</p>
+                <ul>
+                    <li><strong>传感器：</strong> 2088万像素 DX格式（APS-C）CMOS传感器</li>
+                    <li><strong>对焦系统：</strong> 209个对焦点，支持眼部对焦</li>
+                    <li><strong>连拍速度：</strong> 最高约11张/秒</li>
+                    <li><strong>视频能力：</strong> 4K超高清视频</li>
+                    <li><strong>显示屏：</strong> 7.5cm（3英寸）可翻转触摸屏，约104万画点</li>
+                    <li><strong>重量：</strong> 约405g（含电池和存储卡）</li>
+                    <li><strong>价格：</strong> <span class="price">约5299-5799元</span>（机身+16-50mm镜头套机）</li>
+                </ul>
+
+                <h4>产品亮点</h4>
+                <p>尼康Z30在京东上的销量表现不俗，受到众多消费者的青睐。以下是Z30的主要亮点：</p>
+                <ul>
+                    <li><strong>轻便便携：</strong>机身设计小巧，比之前尼康推出的Z50更加紧凑，已经可以成为最小的微单相机之一。</li>
+                    <li><strong>握持舒适：</strong>即使机身设计非常小巧，但依然拥有一个握持感舒适的握柄，长时间拍摄也不会感到疲劳。</li>
+                    <li><strong>视频功能强大：</strong>针对长时间视频录制，Z30也采用了新的散热方案，可以录制长达约125分钟的视频（全高清/24p/25p）。</li>
+                    <li><strong>镜头选择多样：</strong>可以搭配多种尼克尔Z卡口镜头，从广角到长焦，满足不同的拍摄需求。</li>
+                    <li><strong>价格实惠：</strong>在5000-6000元价位段，尼康Z30提供了不错的性价比，适合预算有限的用户。</li>
+                </ul>
+
+                <h4>优缺点分析</h4>
+                <div class="pros-cons">
+                    <p><strong>优点：</strong></p>
+                    <ul class="pros">
+                        <li>机身轻便，便于携带</li>
+                        <li>209个对焦点提供精准对焦</li>
+                        <li>4K超高清视频录制能力</li>
+                        <li>7.5cm可翻转触摸屏便于多角度拍摄</li>
+                        <li>价格在预算范围内</li>
+                    </ul>
+                    <p><strong>缺点：</strong></p>
+                    <ul class="cons">
+                        <li>相比其他高端机型，像素略低</li>
+                        <li>高感光度表现一般</li>
+                        <li>套机镜头光圈不大，低光性能有限</li>
+                    </ul>
+                </div>
+
+                <h4>适用场景</h4>
+                <ul>
+                    <li>日常生活记录和旅行拍摄</li>
+                    <li>室内和光线充足的室外拍摄</li>
+                    <li>Vlog和短视频创作</li>
+                    <li>家庭和人像拍摄</li>
+                    <li>对预算有限但希望获得全面功能的用户特别适合</li>
+                </ul>
+            </article>
+
+            <article id="sony-a6400">
+                <h3>索尼 A6400 套机</h3>
+                <h4>产品概述</h4>
+                 <p>索尼A6400是索尼APS-C画幅无反相机系列中的一个型号，以其高像素和强大的视频能力著称。以下是A6400的主要参数：</p>
+                <ul>
+                    <li><strong>传感器：</strong> 2420万像素 APS-C CMOS</li>
+                    <li><strong>对焦系统：</strong> 425个相位检测点+425个对比度检测点</li>
+                    <li><strong>连拍速度：</strong> 约11张/秒</li>
+                    <li><strong>视频能力：</strong> 4K超高清视频</li>
+                    <li><strong>显示屏：</strong> 3英寸可翻转触摸屏</li>
+                    <li><strong>防抖：</strong> 依赖镜头或电子防抖</li>
+                    <li><strong>重量：</strong> 约403g <span class="note">(机身仅重)</span></li>
+                    <li><strong>价格：</strong> <span class="price">约6499-6799元</span>（机身）+ 镜头价格</li>
+                </ul>
+
+                <h4>产品亮点</h4>
+                <p>索尼A6400在专业用户中有着良好的口碑，以下是其主要亮点：</p>
+                <ul>
+                    <li><strong>高像素传感器：</strong> 2420万像素的传感器提供了出色的细节表现。</li>
+                    <li><strong>快速对焦系统：</strong> 425个相位检测点和425个对比度检测点组成的对焦系统，提供了快速准确的对焦能力。</li>
+                    <li><strong>视频能力优秀：</strong> 支持4K超高清视频录制，具备优秀的自动对焦性能。</li>
+                    <li><strong>丰富的E-mount镜头选择：</strong> 索尼E-mount系统拥有广泛的镜头选择，从广角到长焦应有尽有。</li>
+                    <li><strong>触摸屏操作：</strong> 3英寸可翻转触摸屏提供了直观的操作体验。</li>
+                </ul>
+
+                <h4>优缺点分析</h4>
+                 <div class="pros-cons">
+                    <p><strong>优点：</strong></p>
+                    <ul class="pros">
+                        <li>2420万高像素传感器</li>
+                        <li>强大的对焦系统</li>
+                        <li>优秀的视频能力</li>
+                        <li>丰富的E-mount镜头选择</li>
+                        <li>触摸屏操作直观</li>
+                    </ul>
+                    <p><strong>缺点：</strong></p>
+                    <ul class="cons">
+                        <li>机身价格略超出预算范围</li>
+                        <li>机身不带物理防抖</li>
+                        <li>操作界面对于新手可能较复杂</li>
+                        <li>屏幕仅能上翻180度，不能侧翻</li>
+                    </ul>
+                </div>
+
+                <h4>适用场景</h4>
+                <ul>
+                    <li>高像素要求的风景和人像拍摄</li>
+                    <li>运动和动态场景拍摄</li>
+                    <li>高质量视频制作</li>
+                    <li>专业摄影和视频制作的入门选择</li>
+                    <li>对像素和视频质量有较高要求的用户</li>
+                </ul>
+            </article>
+
+            <article id="panasonic-gx9">
+                <h3>松下 GX9 套机 <span class="note">(二手)</span></h3>
+                <h4>产品概述</h4>
+                <p>松下GX9是松下LUMIX系列中的一款中端无反相机，以其出色的画质和便携性受到好评。以下是GX9的主要参数：</p>
+                <ul>
+                    <li><strong>传感器：</strong> 2030万像素 4/3英寸 Live MOS传感器</li>
+                    <li><strong>对焦系统：</strong> DFD技术，0.07秒高速自动对焦系统</li>
+                    <li><strong>连拍速度：</strong> 约9张/秒 (AFS)</li>
+                    <li><strong>视频能力：</strong> 4K超高清视频 (30p/25p/24p)</li>
+                    <li><strong>显示屏：</strong> 3英寸124万像素可翻转触摸屏 (向上80°, 向下45°)</li>
+                    <li><strong>防抖：</strong> 5轴双效I.S. (机身+镜头协同防抖)</li>
+                    <li><strong>重量：</strong> 约450g（含电池和存储卡）</li>
+                    <li><strong>价格：</strong> <span class="price">约3500-3800元</span>（机身，二手），套机价格<span class="price">约4200-4500元</span>（二手）</li>
+                </ul>
+
+                <h4>产品亮点</h4>
+                <p>松下GX9作为一款中端无反相机，具有以下亮点：</p>
+                <ul>
+                    <li><strong>高像素传感器：</strong> 2030万像素的M4/3画幅Live MOS传感器（无低通滤镜），提供出色的细节表现。</li>
+                    <li><strong>快速对焦系统：</strong> DFD技术加持，0.07秒的超高速自动对焦系统，确保精准捕捉瞬间。</li>
+                    <li><strong>4K视频能力：</strong> 支持4K超高清视频录制，满足现代视频创作需求，并有4K照片模式。</li>
+                    <li><strong>强大的防抖：</strong> 机身内置5轴防抖，可与支持防抖的镜头协同工作。</li>
+                    <li><strong>可翻转屏幕与取景器：</strong> 3英寸124万像素可翻转触摸屏，且配备可翻转的电子取景器。</li>
+                    <li><strong>便携设计：</strong> 机身紧凑，复古风格，便于携带和操作。</li>
+                </ul>
+
+                <h4>优缺点分析</h4>
+                 <div class="pros-cons">
+                    <p><strong>优点：</strong></p>
+                    <ul class="pros">
+                        <li>优秀的画质和细节表现（无低通滤镜）</li>
+                        <li>快速准确的自动对焦</li>
+                        <li>强大的5轴机身防抖</li>
+                        <li>支持4K视频和4K照片</li>
+                        <li>机身紧凑，操控性好，带可翻转EVF</li>
+                        <li>二手价格极具性价比</li>
+                    </ul>
+                    <p><strong>缺点：</strong></p>
+                    <ul class="cons">
+                        <li>是二手设备，可能没有完整保修，需仔细检查成色和功能</li>
+                        <li>M4/3传感器尺寸相对较小，高感和景深控制不如APS-C</li>
+                        <li>4K视频有一定裁切</li>
+                        <li>电池续航一般</li>
+                    </ul>
+                </div>
+
+                <h4>适用场景</h4>
+                <ul>
+                    <li>日常生活记录和旅行拍摄 (街拍利器)</li>
+                    <li>室内和光线充足的室外拍摄</li>
+                    <li>需要稳定手持拍摄的场景（照片和视频）</li>
+                    <li>对画质有较高要求但预算非常有限的用户</li>
+                    <li>喜欢便携、复古外观相机的用户</li>
+                </ul>
+            </article>
+
+            <article id="canon-r10">
+                <h3>佳能 EOS R10 套机</h3>
+                 <h4>产品概述</h4>
+                 <p>佳能EOS R10是佳能EOS R系列中的一款入门级无反相机，以其高速连拍和优秀的对焦系统受到关注。以下是EOS R10的主要参数：</p>
+                <ul>
+                    <li><strong>传感器：</strong> 2420万像素 APS-C CMOS</li>
+                    <li><strong>对焦系统：</strong> 第二代全像素双核CMOS AF，覆盖广，支持智能识别追踪</li>
+                    <li><strong>连拍速度：</strong> 机械快门最高15张/秒，电子快门最高约23张/秒</li>
+                    <li><strong>视频能力：</strong> 4K/60p (有裁切), 4K/30p (6K超采无裁切), 支持HDR PQ</li>
+                    <li><strong>显示屏：</strong> 3英寸约104万点可旋转触摸屏</li>
+                    <li><strong>重量：</strong> 约429g（含电池和存储卡）</li>
+                    <li><strong>价格：</strong> <span class="price">约6199-6599元</span>（机身），套机价格<span class="price">约7599-10399元</span></li>
+                </ul>
+
+                <h4>产品亮点</h4>
+                <p>佳能EOS R10具有以下亮点：</p>
+                 <ul>
+                    <li><strong>高速连拍：</strong> 电子快门下高达23张/秒的连拍速度，适合捕捉快速运动的场景。</li>
+                    <li><strong>先进的对焦系统：</strong> 继承自高端机型的对焦算法，能识别人物、动物、车辆等主体。</li>
+                    <li><strong>高质量视频：</strong> 支持6K超采样的4K/30p无裁切视频，以及有裁切的4K/60p。</li>
+                    <li><strong>轻巧设计：</strong> 机身仅重约429克，非常便携。</li>
+                    <li><strong>佳能生态系统：</strong> 可以使用RF/RF-S卡口镜头，通过转接环兼容EF/EF-S镜头。</li>
+                    <li><strong>操控友好：</strong> 配备肩屏和多个拨轮，操控性较好。</li>
+                </ul>
+
+                <h4>优缺点分析</h4>
+                 <div class="pros-cons">
+                    <p><strong>优点：</strong></p>
+                    <ul class="pros">
+                        <li>出色的高速连拍性能</li>
+                        <li>强大且智能的自动对焦系统</li>
+                        <li>高质量的4K视频录制（特别是无裁切30p）</li>
+                        <li>轻巧便携的机身设计</li>
+                        <li>良好的操控性和侧翻屏</li>
+                    </ul>
+                    <p><strong>缺点：</strong></p>
+                    <ul class="cons">
+                        <li>机身价格略超预算上限，套机价格明显超出</li>
+                        <li>4K/60p视频有明显裁切</li>
+                        <li>原生RF-S镜头选择目前较少（但可转接）</li>
+                        <li>不具备机身防抖</li>
+                    </ul>
+                </div>
+
+                <h4>适用场景</h4>
+                <ul>
+                    <li>高速运动场景拍摄（体育、宠物、鸟类入门）</li>
+                    <li>高质量视频创作，特别是需要无裁切4K/30p的场景</li>
+                    <li>轻便便携的拍摄需求，如旅行、Vlog</li>
+                    <li>对连拍速度和对焦性能有较高要求的用户</li>
+                    <li>希望进入佳能RF系统的用户</li>
+                </ul>
+            </article>
+        </section>
+
+        <section id="comparison">
+            <h2>相机参数对比表</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>相机型号</th>
+                        <th>传感器尺寸</th>
+                        <th>有效像素</th>
+                        <th>连拍速度 (最高约)</th>
+                        <th>视频能力</th>
+                        <th>防抖</th>
+                        <th>重量 (含电池和卡)</th>
+                        <th>参考价格 (机身/套机)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>尼康 Z30</strong></td>
+                        <td>DX格式 (APS-C)</td>
+                        <td>2088万</td>
+                        <td>11张/秒</td>
+                        <td>4K/30p</td>
+                        <td>无机身防抖 (靠镜头/电子)</td>
+                        <td>约405g</td>
+                        <td class="price">¥5299-5799 (套机)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>索尼 A6400</strong></td>
+                        <td>APS-C</td>
+                        <td>2420万</td>
+                        <td>11张/秒</td>
+                        <td>4K/30p</td>
+                         <td>无机身防抖 (靠镜头/电子)</td>
+                        <td>约403g (机身)</td>
+                        <td class="price">¥6499-6799 (机身) / ~¥8800+ (套机)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>松下 GX9 (二手)</strong></td>
+                        <td>M4/3</td>
+                        <td>2030万</td>
+                        <td>9张/秒 (AFS)</td>
+                        <td>4K/30p</td>
+                        <td>5轴机身防抖</td>
+                        <td>约450g</td>
+                        <td class="price">¥3500-3800 (机身) / ¥4200-4500 (套机)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>佳能 EOS R10</strong></td>
+                        <td>APS-C</td>
+                        <td>2420万</td>
+                        <td>15/23张/秒</td>
+                        <td>4K/60p(裁切), 4K/30p(无裁切)</td>
+                        <td>无机身防抖 (靠镜头/电子)</td>
+                        <td>约429g</td>
+                        <td class="price">¥6199-6599 (机身) / ¥7599+ (套机)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="budget-allocation">
+            <h2>预算分配建议与组合示例</h2>
+            <p>在<strong>5000-6000元</strong>的预算范围内，合理的分配应该是机身加镜头的组合。以下是几种基于推荐机型的可能组合分析：</p>
+
+            <div class="budget-combo">
+                <strong>尼康 Z30 套机 (机身 + Z DX 16-50mm f/3.5-6.3 VR 镜头)</strong>
+                <ul>
+                    <li><strong>总价：</strong> <span class="price">约 ¥5500</span></li>
+                    <li><strong>优点：</strong> 价格完全符合预算，开箱即用，镜头带防抖，体积小巧，视频友好设计（翻转屏、录制灯）。</li>
+                    <li><strong>缺点：</strong> 套机镜头光圈不大，暗光环境受限；像素相对较低。</li>
+                    <li><strong>适合：</strong> 预算严格控制在6000内，对便携性、Vlog拍摄有要求的用户。</li>
+                </ul>
+            </div>
+
+            <div class="budget-combo">
+                <strong>松下 GX9 套机 (二手, 机身 + 12-32mm f/3.5-5.6 镜头)</strong>
+                <ul>
+                    <li><strong>总价：</strong> <span class="price">约 ¥4300 - ¥4500</span> (二手价格浮动)</li>
+                    <li><strong>优点：</strong> 价格最低，性价比高，具备5轴机身防抖，画质优秀，操控性好，体积便携。预算结余可考虑添置二手定焦镜头（如25mm f1.7）。</li>
+                    <li><strong>缺点：</strong> 二手设备需谨慎挑选，无保修风险；M4/3底相对小；电池续航一般。</li>
+                    <li><strong>适合：</strong> 预算非常有限，愿意接受二手，看重防抖和性价比的用户。</li>
+                </ul>
+             </div>
+
+             <div class="budget-combo">
+                <strong>尼康 Z30 机身 + 适马 18-50mm F2.8 DC DN 镜头 (Z口)</strong>
+                <ul>
+                    <li><strong>总价：</strong> 机身约 ¥4500 + 镜头约 ¥3500 = <span class="price">约 ¥8000</span></li>
+                    <li><strong>优点：</strong> F2.8恒定大光圈镜头，画质和虚化能力远超套头，适用性更广。</li>
+                    <li><strong>缺点：</strong> 总价大幅超出预算；适马镜头无防抖（Z30机身也无）。</li>
+                    <li><strong>适合：</strong> 对画质有更高要求，未来有升级预算的用户（可先买机身+套头，后升级镜头）。</li>
+                </ul>
+            </div>
+
+            <div class="budget-combo">
+                <strong>索尼 A6400 套机 (机身 + E PZ 16-50mm F3.5-5.6 OSS 镜头)</strong>
+                <ul>
+                    <li><strong>总价：</strong> 机身约 ¥6500 + 镜头约 ¥1000 (拆机或二手) / ¥2000+ (全新) ≈ <span class="price">¥7500 - ¥8500+</span></li>
+                    <li><strong>优点：</strong> 对焦系统强大，高像素，视频追焦性能好，镜头群庞大。</li>
+                    <li><strong>缺点：</strong> 总价超出预算；套头素质一般；机身无防抖；屏幕非侧翻。</li>
+                    <li><strong>适合：</strong> 对追焦性能要求高，看重索尼生态，预算可略微上浮的用户。</li>
+                </ul>
+            </div>
+
+             <div class="budget-combo">
+                 <strong>佳能 EOS R10 套机 (机身 + RF-S 18-45mm F4.5-6.3 IS STM 镜头)</strong>
+                <ul>
+                    <li><strong>总价：</strong> <span class="price">约 ¥7600+</span></li>
+                    <li><strong>优点：</strong> 高速连拍和对焦是亮点，视频规格（4K30p无裁切）不错，操控性好。</li>
+                    <li><strong>缺点：</strong> 价格超出预算较多；套头光圈小；原生RF-S镜头选择少。</li>
+                    <li><strong>适合：</strong> 对捕捉动态瞬间有需求，预算可大幅超出，希望体验佳能新系统的用户。</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="final-recommendation">
+            <h2>专业推荐理由</h2>
+            <p>根据对各款相机的详细分析，结合用户需求（<strong>拍照和视频都比较可以</strong>）以及<strong>5000-6000元</strong>的预算限制，我的核心推荐如下：</p>
+            <ul>
+                <li><strong>首选推荐：尼康 Z30 套机</strong>
+                    <br>这是<strong>最符合预算且性能均衡</strong>的选择。它提供了良好的对焦性能（209点，支持眼部对焦），不错的4K视频录制能力，特别优化的Vlog设计（侧翻屏、录制提示灯、良好收音），机身轻便。套机价格正好落在预算区间内，开箱即用，是预算内“水桶型”选手。</li>
+                <li><strong>高性价比选择（接受二手）：松下 GX9 套机 (二手)</strong>
+                    <br>如果您不介意二手设备，GX9提供了极高的性价比。在<strong>4500元</strong>左右就能获得带<strong>5轴机身防抖</strong>、画质不错的M4/3相机，拍照和视频（4K）能力都可靠。省下的预算甚至可以再添置一支二手大光圈定焦镜头，提升拍摄体验。</li>
+                <li><strong>预算可略微上浮考虑：索尼 A6400 或 佳能 R10 (机身)</strong>
+                    <br>如果您的预算可以稍微放宽到<strong>6500元左右</strong>，可以考虑这两款的<strong>机身</strong>。A6400的对焦系统久经考验，视频能力强，镜头群丰富；R10则在连拍速度、对焦智能识别和视频规格（4K30p无裁切）上更有优势。但请注意，这个价格通常<strong>只能买到机身</strong>，配齐镜头的总价会远超6000元，需要后续投入。</li>
+            </ul>
+            <p class="note">对于A6400和R10，若想控制在6000元内，只能考虑购买<strong>二手</strong>机身，并搭配廉价的二手镜头或手动镜头，但这增加了选择和使用的复杂性。</p>
+        </section>
+
+        <section id="conclusion">
+            <h2>结论</h2>
+            <div class="conclusion">
+                <p>在<strong>5000-6000元</strong>的预算范围内，<strong>尼康 Z30 套机</strong>无疑是平衡拍照、视频、便携性和价格的最佳选择，特别适合初学者和Vlogger。如果追求极致性价比且能接受二手，<strong>松下 GX9 套机</strong>凭借其机身防抖和低廉的价格成为强有力的备选。</p>
+                <p>索尼 A6400 和 佳能 EOS R10 虽然性能更强（尤其在对焦、连拍等方面），但其价格（无论是机身还是套机）普遍超出了6000元的预算范围，更适合预算稍高或愿意后续投入的用户。</p>
+                <p>希望这份报告能帮助你在众多相机型号中做出明智的选择。无论您选择哪款相机，重要的是找到适合自己的工具，享受摄影和摄像带来的乐趣，记录生活中的美好瞬间。</p>
+            </div>
+        </section>
+
+        <footer>
+            <p style="text-align:center; margin-top: 40px; color: #888; font-size: 0.9em;">由WHD整理。</p>
+        </footer>
+
+    </div>
+</body>
+</html>
